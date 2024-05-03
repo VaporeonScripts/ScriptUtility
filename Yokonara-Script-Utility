@@ -19,9 +19,10 @@ echo ===========================================================================
 echo                         YOKONARA SCRIPTS V%version%  - Authentication                          
 echo ===============================================================================
 echo.
+echo Follow YokonaraRevamped on TikTok
 set /p password="Enter the correct Key to access the script: "
 
-if "%password%"=="Yokonara2024" (
+if "%password%"=="YokonaraScripts" (
     goto menu
 ) else (
     echo Incorrect key. Please try again.
@@ -42,6 +43,7 @@ echo.
 echo [1] Trade Scripts
 echo [2] Credits
 echo [3] Help
+echo [D] Discord Server discord.gg/HM9aCuwhBb
 echo [X] Exit
 echo ===============================================================================
 set /p scelta="Select An Option: "
@@ -52,6 +54,8 @@ if "%scelta%"=="1" (
     call :credits_menu
 ) else if "%scelta%"=="3" (
     call :help_menu
+) else if /i "%scelta%"=="D" (
+    start "" "https://discord.gg/HM9aCuwhBb"
 ) else if /i "%scelta%"=="X" (
     call :confirm_exit
 ) else (
@@ -70,7 +74,7 @@ echo ===========================================================================
 echo                                     %~1                                       
 echo ===============================================================================
 echo [1] %~2 %script_stato1% (Undetected)
-echo [2] %~3 %script_stato3% (Undetected)
+echo [2] %~3 (Undetected)
 echo [3] %~4 %script_stato5% (Undetected)
 echo [4] %~5 %script_stato6% (Undetected)
 echo [B] Back to Main Menu
@@ -82,7 +86,8 @@ if /i "%sub_choice%"=="B" (
 ) else if "%sub_choice%"=="1" (
     call :toggle_script_state script_stato1 "%~2"
 ) else if "%sub_choice%"=="2" (
-    call :toggle_script_state script_stato3 "%~3"
+    echo Player InTrade Pets/Items are not duped!
+    timeout /nobreak /t 2 >nul
 ) else if "%sub_choice%"=="3" (
     call :toggle_script_state script_stato5 "%~4"
 ) else if "%sub_choice%"=="4" (
@@ -90,7 +95,6 @@ if /i "%sub_choice%"=="B" (
 ) else (
     echo Invalid choice. Please try again.
     timeout /nobreak /t 2 >nul
-    goto submenu
 )
 goto submenu
 
